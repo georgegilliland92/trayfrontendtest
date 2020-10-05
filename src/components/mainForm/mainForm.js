@@ -66,7 +66,7 @@ class MainForm extends Component {
     }
 
     // Handle error messages in the apps state
-    handleErrors(error){
+    handleErrors(errors){
         this.setState({
             "errorMessages": errors
         })    
@@ -76,7 +76,7 @@ class MainForm extends Component {
     // Line 87 renders error messages in the dom if there are any
     render() {
         const {pageOne, pageTwo, pageThree, errorMessages, user} = this.state;
-      
+      console.log(this.state)
         return (
             <div className="outerFormContainer"> 
                 <div className="headerContainer">
@@ -94,9 +94,9 @@ class MainForm extends Component {
                     : null}
                     <form>
                         <PageOne visible={pageOne} changePage={this.changePage.bind(this)} 
-                            handleChange={this.handleTextChange} obj={user} errors={this.handleErrors.bind(this)}/>
+                            handleChange={this.handleTextChange.bind(this)} obj={user} errors={this.handleErrors.bind(this)}/>
                         <PageTwo visible={pageTwo} changePage={this.changePage.bind(this)} 
-                            handleChange={this.handleTextChange} obj={user}/>
+                            handleChange={this.handleTextChange.bind(this)} obj={user}/>
                         <PageThree visible={pageThree} />
                     </form>
                 </div>
