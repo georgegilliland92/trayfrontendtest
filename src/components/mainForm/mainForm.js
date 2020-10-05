@@ -76,7 +76,6 @@ class MainForm extends Component {
     // Line 87 renders error messages in the dom if there are any
     render() {
         const {pageOne, pageTwo, pageThree, errorMessages, user} = this.state;
-      console.log(this.state)
         return (
             <div className="outerFormContainer"> 
                 <div className="headerContainer">
