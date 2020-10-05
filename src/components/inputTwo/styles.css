@@ -1,0 +1,22 @@
+.inputTwoContainer {
+    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.inputTwoLabelContainer {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+
+.inputTwo {
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+}

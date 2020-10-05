@@ -1,0 +1,38 @@
+.outerFormContainer {
+    width: 500px;
+    height: 650px;
+}
+
+.headerContainer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    border-radius: 5px; 
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+}
+
+.innerFormContainer {
+    border: 2px solid black;
+    padding: 15px 10px 15px 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+}
+
+.errorMessageContainer {
+    margin-bottom: 20px;
+}
+
+.errorMessage {
+    margin-bottom: 10px;
+    color: crimson;
+}

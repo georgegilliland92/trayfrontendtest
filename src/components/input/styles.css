@@ -1,0 +1,23 @@
+.inputContainer {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.inputLabelContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.required {
+    color: crimson;
+}
+
+.inputOne {
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+}
