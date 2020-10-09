@@ -1,56 +1,51 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Input from '../input/input.js';
 import './styles.css';
 
-class pageOne extends Component {
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    // Handles click event and performs validations
-    handleClick(e) {
+const PageOne = ( {active, userObj, changePage, errors, handleChange} ) => {
+    function handleClick(e) {
         e.preventDefault();
-
-        let errors = []
+        let errorMessages = []
         let emailRegex = /\S+@\S+\.\S+/;
         let passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{9,}$/
+
         // Checks if valid email using regex
-        if (emailRegex.test(this.props.obj.email) === false) {
-            errors.push("Please type in a valid email");
+        if (emailRegex.test(userObj.user.email) === false) {
+            errorMessages.push("Please type in a valid email");
         }
         // Checks if name is empty
-        if (this.props.obj.name === "") {
-            errors.push("Please type in your name");
+        if (userObj.user.name === "") {
+            errorMessages.push("Please type in your name");
         }
         // Checks if password is valid
-        if (passwordRegex.test(this.props.obj.password) === false) {
-            errors.push("Please type in a valid password");
+        if (passwordRegex.test(userObj.user.password) === false) {
+            errorMessages.push("Please type in a valid password");
         }
         // If no errors, change page
-        if (errors.length === 0) {
-            this.props.changePage(e.target.getAttribute("data-name"))
+        if (errorMessages.length === 0) {
+            changePage(e.target.getAttribute("data-name"))
         } else {
+            console.log(errorMessages)
             // If errors, populate errors 
-            this.props.errors(errors);
-        }
+            errors(errorMessages);
+        }    
     }
-
-    //  Renders the first page of the forms input components using properties passed from the parent 
-    render() {
-        return (
-            // if the visible props returns true, display header, if not display none
-            <div className={`${this.props.visible === true ? "inputsContainer visible" : "inputsContainer notvisible"}`}> 
-                <Input id="name" label={"Name"} name={"name"} type={"text"} onChange={this.props.handleChange} value={this.props.obj.name} required={true}/>
-                <Input id="role" label={"Role"} name={"role"} type={"text"} onChange={this.props.handleChange} value={this.props.obj.role} required={false}/>
-                <Input id="email" label={"Email"} name={"email"} type={"email"} onChange={this.props.handleChange} value={this.props.obj.email} required={true}/>
-                <Input id="password" label={"Password"} name={"password"} type={"password"} onChange={this.props.handleChange} value={this.props.obj.password} required={true}/>
-                <div id="pageOneSubmitContainer" className="submitButtonContainer" onClick={this.handleClick}>
-                    <div data-name="forwards" id="pageOneSubmit" className="submitButton">Next</div>
-                </div>
+    return (
+        // if the visible props returns true, display header, if not display none
+        <div className={`${active === true ? "inputsContainer active" : "inputsContainer inactive"}`}> 
+            <Input id="name" label={"Name"} name={"name"} type={"text"} onChange={handleChange} 
+                value={userObj.name} required={true}/>
+            <Input id="role" label={"Role"} name={"role"} type={"text"} onChange={handleChange} 
+                value={userObj.role} required={false}/>
+            <Input id="email" label={"Email"} name={"email"} type={"email"} onChange={handleChange} 
+                value={userObj.email} required={true}/>
+            <Input id="password" label={"Password"} name={"password"} type={"password"} onChange={handleChange} 
+                value={userObj.password} required={true}/>
+            <div id="pageOneSubmitContainer" className="submitButtonContainer" onClick={handleClick}>
+                <div data-name="forwards" id="pageOneSubmit" className="submitButton">Next</div>
             </div>
-        )
-    }
-}
+        </div>
+    )
+};
 
-export default pageOne;
+export default PageOne;

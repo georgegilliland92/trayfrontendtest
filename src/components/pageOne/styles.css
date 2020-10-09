@@ -1,9 +1,9 @@
-.visible {
+.active {
     display: flex;
     flex-direction: column;
 }
 
-.notvisible {
+.inactive {
     display: none;
 }
 

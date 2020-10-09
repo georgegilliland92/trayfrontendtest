@@ -1,16 +1,13 @@
-import React, { Component} from "react";
-import MainForm from './components/mainForm/mainForm.js';
+import React from "react";
+import Form from './components/form/form.js';
 import "./styles.css";
 
-// Renders the mainform component into the app 
-class App extends Component{
-    render(){
-        return(
-            <div className="App">
-                < MainForm />
-            </div>
-        );
-    }
-}
+const App = () => {
+    return (
+        <div className="App">
+            <Form />
+        </div>
+    )
+};
 
 export default App;

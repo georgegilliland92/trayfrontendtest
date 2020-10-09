@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles.css';
 
-class Input extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    // Renders the forms text input fields using properties passed from the parent 
-    render() {
-        return (
-            <div className="inputContainer">
-                <div className="inputLabelContainer">
-                    {this.props.label}
-                    {this.props.required ?                                     
-                        <div className="required">
-                            *
-                        </div>
-                    : null
-                    }
-                </div> 
-                <input className="inputOne" name={this.props.name} type={this.props.type} onChange={this.props.onChange}></input>
-            </div>
-        )
-    }
-}
+// Renders the forms text input fields using properties passed from the parent 
+const Input = ({ label, required, name, type, onChange }) => {
+    return (
+        <div className="inputContainer">
+            <div className="inputLabelContainer">
+                {label}
+                {required ?                                     
+                    <div className="required">
+                        *
+                    </div>
+                : null
+                }
+            </div> 
+            <input className="inputOne" name={name} type={type} onChange={onChange}></input>
+        </div>
+    )
+};
 
 export default Input;

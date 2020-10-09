@@ -10,19 +10,19 @@
     cursor: pointer;
 }
 
-.active:nth-child(1) {
+.activeHeader:nth-child(1) {
     background-color: #0d66e5;
     color: white;
     border-radius: 2px 0 0 2px;
 }
 
-.active:nth-child(2) {
+.activeHeader:nth-child(2) {
     background-color: #0d66e5;
     color: white;
     border-radius: 0px;
 }
 
-.active:nth-child(3) {
+.activeHeader:nth-child(3) {
     background-color: #0d66e5;
     color: white;
     border-radius: 0 2px 2px 0;
